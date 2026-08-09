@@ -86,9 +86,7 @@ jobs:
         mkdir -p ophub/openwrt-armsr
 
 
-        cp rootfs.tar.gz \
-
-        ophub/openwrt-armsr/openwrt-armvirt-64-default-rootfs.tar.gz
+        cp rootfs.tar.gz ophub/openwrt-armsr/openwrt-armvirt-64-default-rootfs.tar.gz
 
 
 
