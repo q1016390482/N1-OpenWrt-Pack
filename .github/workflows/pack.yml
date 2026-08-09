@@ -17,6 +17,9 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write
+
     runs-on: ubuntu-24.04
 
     steps:
@@ -72,3 +75,15 @@ jobs:
           name: OpenWrt-N1-${{ inputs.kernel }}
           path: output/OpenWrt_N1_*.img.gz
           retention-days: 7
+
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: N1-${{ inputs.kernel }}-${{ github.run_number }}
+          name: OpenWrt N1 ${{ inputs.kernel }}
+          body: |
+            OpenWrt Phicomm N1 firmware
+            Kernel: ${{ inputs.kernel }}
+          files: |
+            output/OpenWrt_N1_*.img.gz
